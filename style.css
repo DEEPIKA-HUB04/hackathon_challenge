@@ -1,5 +1,7 @@
-body{
+
+#first{
     background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+    
 }
 h1{
 animation:blinkingText 1.5s infinite;
@@ -11,3 +13,40 @@ animation:blinkingText 1.5s infinite;
 99%{	color:transparent;	}
 100%{	color:#ff00ff;	}
 }
+@media only screen and (max-width:768px) {
+#first {
+        width:500px !important;
+       height: 830px !important;
+        
+            }
+    }
+
+    @media only screen and (max-width:570px) {
+        #first {
+                width:300px !important;
+                
+                    }
+                    #btn {
+                        margin-top : 10px !important;
+                 width: 100px !important;
+                 height: 30px !important;
+                 font-size : 10px !important;
+                    }
+                    #image{
+
+                        height:300px !important;
+                    }
+            }
+
+            @media only screen and (max-width:960px){
+
+                #first {
+                    width:500px !important;
+                    
+                        }
+                        #image{
+
+                            height:300px !important;
+                        }
+
+            }
