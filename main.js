@@ -1,5 +1,5 @@
 var element1 = document.createElement("div");
-element1.style.width = "1000px";
+element1.style.width = "900px";
 element1.style.height = "730px";
 element1.style.margin = "0 auto";
 element1.style.color = "white"
@@ -15,7 +15,7 @@ element1.appendChild(element2);
 
 var element3 = document.createElement("div")
 element3.style.float = "right"
-element3.style.paddingRight = "20px"
+element3.style.paddingRight = "0 20px"
 element1.style.color = "darkred"
 element3.innerHTML = "wrong Guess :"
 element1.appendChild(element3);
@@ -34,6 +34,18 @@ var element5 = document.createElement("span")
 element5.setAttribute("id","maxwrong");
 element5.style.paddingLeft = "10px"
 element3.appendChild(element5);
+
+var right = document.createElement("div")
+right.style.float = "right"
+right.style.padding = " 0 20px"
+right.style.color = "darkgreen"
+right.innerHTML = "right guess : "
+element3.appendChild(right);
+
+var rightCount = document.createElement("span")
+rightCount.setAttribute("id","count")
+right.appendChild(rightCount)
+
 
 var element6 = document.createElement("div")
 element6.style.textAlign = "center";
