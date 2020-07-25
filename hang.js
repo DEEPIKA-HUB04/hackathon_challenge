@@ -38,8 +38,8 @@ function randomWord() {
     var  button = 'abcdefghijklmnopqrstuvwxyz'.split('').map(alphabet =>
       `
         <button
-          style = "background-color:coral; margin : 8px 8px ; width: 40px;font-size : 20px;"
-          id='` + alphabet + `'
+          style = "background-color:coral; margin : 4px 4px ; width: 30px;font-size : 20px;"
+          id='`  + alphabet + `'
           onClick="Guess('` + alphabet + `')"
         >
           ` + alphabet + `
@@ -83,7 +83,7 @@ function randomWord() {
 
   function nextlevel() {
 
-    
+
       
   }
   
