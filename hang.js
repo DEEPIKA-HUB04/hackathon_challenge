@@ -1,23 +1,15 @@
 
-var words = [
-	"python",
-	"javascript",
-	"mongodb",
-	"json",
-	"java",
-	"html",
-	"css",
-	"c",
-	"csharp",
-	"golang",
-	"kotlin",
-	"php",
-	"sql",
-	"ruby"
+var words =["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda",
+"Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus",
+"Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands",
+"Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia",
+"Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti",
+"Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands",
+"Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana",
+"Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau",
+"Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland",
+
 ]
-
-//var difficultWords = [ "Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia"]
-
 var answer = "";
 var maxwrong = 6;
 var wrong = 0;
@@ -33,13 +25,13 @@ function randomWord() {
   }
 
 
-  // function to display buttons and 
+  // function to display buttons and also parse the seleced letter when onclick is done
   function displayButtons() {
     var  button = 'abcdefghijklmnopqrstuvwxyz'.split('').map(alphabet =>
       `
         <button
-          style = "background-color:coral; margin : 4px 4px ; width: 30px;font-size : 20px;"
-          id='`  + alphabet + `'
+          style = "background-color:coral; margin : 8px 8px ; width: 40px;font-size : 20px;"
+          id='` + alphabet + `'
           onClick="Guess('` + alphabet + `')"
         >
           ` + alphabet + `
@@ -48,20 +40,20 @@ function randomWord() {
   
     document.getElementById('keypress').innerHTML = button;
   }
-
+// function to check guessed letter correct or not and will do respective action accordingly
   function Guess(selectedLetter){
     guessed.indexOf(selectedLetter) === -1 ? guessed.push(selectedLetter) : null;
     document.getElementById(selectedLetter).setAttribute('disabled', true);
 
     if (answer.indexOf(selectedLetter) >= 0) {   
         correct++;
-        document.getElementById("count").innerHTML = correct;                                         // if the guessed letter is correct will display the letter
+        document.getElementById("count").innerHTML = correct;  
       guessWord(); 
       seeIfGameWon();
-      nextlevel();
+       
     }
     
-    else if (answer.indexOf(selectedLetter) === -1) {              // if not correct will increment wrong count by 1.
+    else if (answer.indexOf(selectedLetter) === -1) {              
         
         wrong++;
          updateMistakes();
@@ -70,22 +62,20 @@ function randomWord() {
     }
 
   }
+
+  //function to display man parts depending on wrong varaible count
   function updatePic() {
     document.getElementById('hangmanphoto').src = 'images/' + wrong + '.jpg';
   }
   
+  // function to display score and greeting if WON the Game
   function seeIfGameWon() {
     if (currentWordStatus === answer) {   
       document.getElementById('keypress').innerHTML = 'Score : ' + correct + " " + 'HURRAY YOU WON!!!' ;
     }  
-   
   }
 
-  function nextlevel() {
-
-
-      
-  }
+//function to display answer and also lost statment if LOST the Game
   
   function seeIfGameLost() {
     if (wrong === maxwrong) {
@@ -95,19 +85,22 @@ function randomWord() {
   }
 
 
-  // function to provide blank dashes depending on the random answer generated
+  // function to display the correctly guessed word 
   function guessWord() {
     currentWordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('');
   
     document.getElementById('fillwords').innerHTML = currentWordStatus;
   }
 
+  //function to update the wrong count
   function updateMistakes() {
     document.getElementById('wrong').innerHTML = wrong;
   }
-  
+
+  // on clicking the reset button will intialize all actions from first
   function reset() {
     wrong= 0;
+    correct = 0;
     guessed = [];
     document.getElementById('hangmanphoto').src = 'images/0.jpg';
   
@@ -118,13 +111,9 @@ function randomWord() {
   }
   
   document.getElementById("maxwrong").innerHTML = maxwrong; 
+  
   randomWord();
  displayButtons();
  guessWord();
 
- // NEXT LEVEL
-
- /*function nextlevel (difficultWords){
-    return answer = difficultWords[Math.floor(Math.random() * difficultWords.length)];
- }*/
-
+  

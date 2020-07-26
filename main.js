@@ -1,8 +1,9 @@
+
 var element1 = document.createElement("div");
 element1.setAttribute("id","first")
 element1.style.width = "900px";
-element1.style.height = "722px";
-element1.style.margin = "auto";
+element1.style.height = "730px";
+element1.style.margin = "0 auto";
 element1.style.color = "white"
 element1.style.fontFamily = "Roboto Mono"
 document.body.append(element1);
@@ -55,7 +56,6 @@ element1.appendChild(element6);
 var image = document.createElement("img")
 image.setAttribute("id","hangmanphoto")
 image.setAttribute("src","images/0.jpg")
-image.setAttribute("id","image")
 element6.appendChild(image)
 
 var element7 = document.createElement("p")
